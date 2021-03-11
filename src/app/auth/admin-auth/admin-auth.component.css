@@ -1,0 +1,25 @@
+mat-form-field{
+    width: 350px;
+    max-width: 90%;
+}
+
+mat-card,mat-card-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    max-width: 85%;
+}
+
+.errors{
+    width: 100%;
+    max-width: 85%;
+display: flex;
+justify-content: center;
+background: #ffbbb8;
+padding: 1rem 0;
+margin-bottom: 1rem;
+}

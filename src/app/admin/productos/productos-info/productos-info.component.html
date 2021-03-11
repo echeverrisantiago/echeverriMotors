@@ -1,0 +1,15 @@
+<div>
+    <div *ngIf="product">
+        <div *ngFor="let columns of row let i = index" style="display: flex;">
+            <div *ngFor="let item of filterDataRow(i)" [ngClass]="'col-lg-'+12/ filterDataRow(i).length">
+                <img [src]="item.content" *ngIf="item.type_content == 'image'" style="width:100%">
+                <p *ngIf="item.type_content != 'image'">{{item.content}}</p>
+            </div>
+        </div>
+    </div>
+    <mat-card class="add-row d-flex flex-column align-items-center justify-content-center"
+    (click)="addRow()">
+        <p>Añade una nueva fila</p>
+        <mat-icon color="primary">add_circle</mat-icon>
+    </mat-card>
+</div>

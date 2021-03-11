@@ -1,0 +1,12 @@
+.add-row {
+    background: #00968855;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 2rem;
+}
+
+.add-row p {
+    margin: 0;
+    font-weight: 500;
+    color: #222;
+}

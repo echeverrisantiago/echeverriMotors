@@ -1,0 +1,38 @@
+<div>
+<form [formGroup]="form" (ngSubmit)="login($event)">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title><h2>Login</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+            <mat-form-field>
+                <mat-label>E-mail</mat-label>
+                <input matInput type="email" formControlName="email">
+            </mat-form-field>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col">
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>
+            </div>
+            </div>
+            <div *ngIf="errors" class="row errors">
+                    <mat-error>{{ errors }}</mat-error>
+            </div>
+            <div class="row">
+                <div class="col">
+                <button [disabled]="form.invalid"
+                 mat-raised-button color="primary" type="submit">
+                 Iniciar sesión
+                </button>
+                </div>
+                </div>
+        </mat-card-content>
+</mat-card>
+</form>
+</div>

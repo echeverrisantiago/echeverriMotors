@@ -1,0 +1,26 @@
+<div *ngIf="itemsCarousel">
+<mat-card-content>
+  <span style="flex:auto;"></span>
+<a routerLink="create">
+<button mat-raised-button mat-button color="primary">
+Nuevo item
+</button>
+</a>
+</mat-card-content>
+<div *ngIf="itemsCarousel" class="carousel-main">
+  <div *ngFor="let items of itemsCarousel;">
+    <img [src]="items.content">
+    <mat-card-actions>
+      <button mat-raised-button mat-button color="accent" routerLink="{{items.id}}">
+        <mat-icon>edit</mat-icon>
+      </button>
+    <button mat-raised-button mat-button class="btn btn-primary"
+        mwlConfirmationPopover
+        (confirm)="deleteItem(items.id)"
+        [popoverTitle]="'¿Desea eliminar este item?'"
+        [popoverMessage]="''"
+        placement="left" color="warn"><mat-icon>delete</mat-icon></button>
+  </mat-card-actions>
+  </div>
+</div>
+</div>

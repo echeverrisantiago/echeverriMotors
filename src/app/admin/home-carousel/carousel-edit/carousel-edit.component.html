@@ -1,0 +1,36 @@
+<div *ngIf="item">
+    <form [formGroup]="form" (ngSubmit)="actualizarCarouselItem($event)">
+        <mat-card>
+            <mat-card-header>
+            <mat-card-title><h2>Editar item</h2></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+    <div class="row">
+        <div class="col">
+            <mat-label>Contenido</mat-label>
+            <input type="file" (change)="itemImage($event)" formControlName="image">
+    </div>
+    </div>
+    <div class="row">
+        <div class="col">
+ <mat-form-field>
+    <mat-label>Tipo de contenido</mat-label>
+    <input matInput type="text" formControlName="content_type">
+</mat-form-field>
+</div>
+<div class="col">
+<mat-form-field>
+<mat-label>Posición</mat-label>
+<input matInput type="text" formControlName="position">
+</mat-form-field>
+
+</div>
+    </div>
+            </mat-card-content>
+            <img [src]="mainImg">
+            <mat-card-actions>
+                <button mat-raised-button mat-button color="primary" type="submit">Actualizar</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+    </div>

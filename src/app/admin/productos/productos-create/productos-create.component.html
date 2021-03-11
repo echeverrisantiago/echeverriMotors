@@ -1,0 +1,133 @@
+ <!--<mat-horizontal-stepper>-->
+    <!-- Product -->
+   <!-- <mat-step>-->
+<div>
+<form [formGroup]="form" (ngSubmit)="listarProduct($event)">
+    <mat-card>
+        <mat-card-header>
+        <mat-card-title><h2>Listar producto</h2></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+                <div class="row">
+                    <div class="col">
+             <mat-form-field>
+                <mat-label>Marca</mat-label>
+                <input matInput type="text" formControlName="marke" [(ngModel)]="marke">
+            </mat-form-field>
+        </div>
+        <div class="col">
+ <mat-form-field>
+    <mat-label>Modelo</mat-label>
+    <input matInput type="text" formControlName="model" [(ngModel)]="model">
+</mat-form-field>
+
+</div>
+                </div>
+<div class="row">
+    <div class="col">
+<mat-form-field>
+<mat-label>Año</mat-label>
+<input matInput type="text" formControlName="year" [(ngModel)]="year">
+</mat-form-field>
+</div>
+
+
+    <div class="col">
+<mat-form-field>
+<mat-label>Precio</mat-label>
+<input matInput type="text" formControlName="price">
+</mat-form-field>
+</div>
+</div>
+<div class="row">
+    <div class="col">
+<mat-form-field>
+<mat-label>Stock</mat-label>
+<input matInput type="number" formControlName="stock">
+</mat-form-field>
+</div>
+    <div class="col">
+<mat-form-field>
+<mat-label>Ficha técnica</mat-label>
+<input matInput type="text" formControlName="data_sheet">
+<input type="file" (change)="productImage($event)">
+</mat-form-field>
+</div>
+</div>
+<div class="row">
+    <div class="col">
+
+</div>
+</div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button mat-button color="primary" type="submit">Listar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+</div>
+<!-- </mat-step> -->
+<!-- Product info --><!--
+<mat-step *ngIf="validadoProduct">
+    <form (ngSubmit)="listarProduct($event)">
+        <mat-card>
+            <mat-card-header>
+            <mat-card-title><h2>Producto info</h2></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                    <div class="row">
+                        <div class="col">
+                 <mat-form-field>
+                    <mat-label>Con</mat-label>
+                    <input matInput type="text" formControlName="marke">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+     <mat-form-field>
+        <mat-label>Modelo</mat-label>
+        <input matInput type="text" formControlName="model">
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col">
+    <mat-form-field>
+    <mat-label>Precio</mat-label>
+    <input matInput type="text" formControlName="price">
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col">
+    <mat-form-field>
+    <mat-label>Stock</mat-label>
+    <input matInput type="number" formControlName="stock">
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col">
+    <mat-form-field>
+    <mat-label>Ficha técnica</mat-label>
+    <input matInput type="text" formControlName="data_sheet">
+    </mat-form-field>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col">
+
+    </div>
+    </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button mat-button color="primary">Listar</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</mat-step>
+<mat-step *ngIf="validadoProductInfo">
+e
+</mat-step>
+</mat-horizontal-stepper>-->

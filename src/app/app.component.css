@@ -1,0 +1,9 @@
+:root{
+    --primary-color: #184b6a;
+    --third-color: #fff;
+}
+
+.primary-backcolor{
+    background-color: #184b6a;
+    color: #fff;
+}

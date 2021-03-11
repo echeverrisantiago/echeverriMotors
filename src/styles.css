@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import 'custom-theme.scss';
+
+:root{
+    --primary-color: #184b6a;
+    --third-color: #fff;
+}
+
+.primary-backcolor{
+    background-color: var(--primary-color);
+    color: var(--third-color);
+}
+
+td button{
+    margin: .5rem!important;
+}

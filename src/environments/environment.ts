@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  laravel_api: 'http://127.0.0.1:8000',
+  firebase: {
+    apiKey: "AIzaSyAeteZiCUuz1rn1zrRZdbjD-DlgrbZwKvk",
+    authDomain: "echeverrimotors.firebaseapp.com",
+    projectId: "echeverrimotors",
+    storageBucket: "echeverrimotors.appspot.com",
+    messagingSenderId: "417430090542",
+    appId: "1:417430090542:web:67b019aac67ddc9f6840bf"
+  }
+
 };
 
 /*

@@ -1,0 +1,59 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="actualizarItem($event)">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <h2>Editar asesor</h2>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Número de cédula</mat-label>
+                            <input matInput type="text" formControlName="document">
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Nombre</mat-label>
+                            <input matInput type="text" formControlName="name">
+                        </mat-form-field>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Apellidos</mat-label>
+                            <input matInput type="text" formControlName="surnames">
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Correo electrónico</mat-label>
+                            <input matInput type="text" formControlName="email">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Teléfono</mat-label>
+                            <input matInput type="number" formControlName="phone">
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <img [src]="mainImg">
+                            <input formControlName="image" type="file" (change)="asesorImage($event)">
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button mat-button color="primary" type="submit">Listar</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>
