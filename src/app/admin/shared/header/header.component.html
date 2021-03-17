@@ -23,13 +23,16 @@
     <a mat-list-item routerLink="homeCarousel" routerLinkActive="active">
         Carousel
     </a>
+    <a mat-list-item routerLink="usuarios" routerLinkActive="active">
+        Usuarios
+    </a>
 </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar color="primary">
             <span>Dashboard</span>
             <span style="flex:auto;"></span>
-            <mat-slide-toggle (ngModel)="isDarkTheme" labelPosition="before" (change)="toggleTheme()">
+            <mat-slide-toggle (ngModel)="isDarkTheme" labelPosition="before" (change)="toggleTheme()" [class]="isChecked">
                 <mat-icon>bedtime</mat-icon>
             </mat-slide-toggle>
         </mat-toolbar>

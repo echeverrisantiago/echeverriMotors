@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ProductosService } from './../../../services/admin/productos.service';
 import { environment } from './../../../../environments/environment';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { catchError, finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-productos-create',
@@ -21,6 +22,7 @@ export class ProductosCreateComponent implements OnInit {
   marke: any;
   model: any;
   year: any;
+  main_img: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,18 +40,7 @@ export class ProductosCreateComponent implements OnInit {
     event.preventDefault();
     if(this.form.valid){
       const formData = this.form.value;
-      return this.productosService.store(formData)
-      .subscribe((response) => {
-        if(response){
-          this.router.navigate(['/admin/productos']);
-          this.uploadImg();
-          this.errors = false;
-        } else{
-          this.errors = 'Ha habido un error al guardar el producto';
-          this.router.navigate(['/admin/productos']);
-        }
-        console.log(response);
-      })
+      this.uploadImg(formData);
     }
   }
 
@@ -58,10 +49,39 @@ export class ProductosCreateComponent implements OnInit {
     console.log(this.image);
   }
 
-  uploadImg(){
+  uploadImg(data: any){
+    const formData = data;
     const fd = new FormData();
     fd.append('image',this.image,this.image.name);
-    this.storage.upload('products/'+`${this.marke+'/'+this.year+'/'+this.model+'/mainImage/'}`+this.image.name,this.image);
+    const ref = 'products/'+`${data.reference+'/mainImage/'}`+this.image.name;
+    const mainImg = this.storage.upload(ref,this.image);
+    const fileRef = this.storage.ref(ref);
+
+    mainImg.snapshotChanges()
+    .pipe(
+      finalize(() => {
+         const ImgRef = fileRef.getDownloadURL()
+         ImgRef.subscribe((url) => {
+          formData.main_img = url;
+          this.uploadData(formData);
+        })
+      })
+    )
+    .subscribe();
+  }
+
+  uploadData(formData){
+    return this.productosService.store(formData)
+      .subscribe((response) => {
+        if(response){
+          this.router.navigate(['/admin/productos']);
+          this.errors = false;
+        } else{
+          this.errors = 'Ha habido un error al guardar el producto';
+          this.router.navigate(['/admin/productos']);
+        }
+        console.log(response);
+      })
   }
 
   private buildForm(){
@@ -70,6 +90,7 @@ export class ProductosCreateComponent implements OnInit {
       model: ['',[Validators.required, Validators.minLength(2)]],
       price: ['',[Validators.required, Validators.minLength(7)]],
       stock: ['',[Validators.required, Validators.minLength(1)]],
+      reference: ['',[Validators.required, Validators.minLength(5),Validators.maxLength(8)]],
       data_sheet: ['', Validators.minLength(1)],
       year: ['',[Validators.required,Validators.minLength(4)]]
     })

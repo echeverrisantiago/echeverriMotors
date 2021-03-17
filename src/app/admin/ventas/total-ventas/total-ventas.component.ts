@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SalesService } from './../../../services/admin/sales.service';
 
 @Component({
   selector: 'app-total-ventas',
@@ -7,9 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TotalVentasComponent implements OnInit {
 
-  constructor() { }
+  dataSource: any[];
+
+  displayedColumns: string[] = ['position', 'product','customer','adviser','sale_state','date','actions'];
+  constructor(private salesService: SalesService) { }
 
   ngOnInit(): void {
+    this.indexProducts();
+  }
+
+  indexProducts(){
+    this.salesService.index()
+    .subscribe((products) => {
+      if(products){
+        console.log(products);
+        this.dataSource = products;
+      }
+    })
+  }
+
+  deleteProduct(id){
+    this.salesService.delete(id)
+    .subscribe((products) => {
+      if(products){
+        this.indexProducts();
+      }
+    })
   }
 
 }

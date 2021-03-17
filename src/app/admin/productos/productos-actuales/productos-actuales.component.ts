@@ -10,7 +10,7 @@ import { Products } from './../productos.interface';
 export class ProductosActualesComponent implements OnInit {
   dataSource: Products[];
 
-  displayedColumns: string[] = ['position', 'marke', 'model', 'year','price','stock','data_sheet','actions'];
+  displayedColumns: string[] = ['position', 'reference','marke', 'model', 'year','price','stock','data_sheet','actions'];
   constructor(private productosService: ProductosService) { }
 
   ngOnInit(): void {

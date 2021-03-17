@@ -15,10 +15,12 @@ class Sales extends Migration
     {
         Schema::create('products', function (Blueprint $table){
             $table->id();
+            $table->string('reference')->unique();
             $table->string('marke',50);
             $table->string('model',50);
             $table->string('price');
             $table->string('year');
+            $table->string('main_img');
             $table->string('data_sheet',350)->nullable();
             $table->integer('stock');
         });
@@ -47,7 +49,7 @@ class Sales extends Migration
             $table->bigInteger('adviser_id')->unsigned();
             $table->string('sale_state',100);
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('customer_id')->references('document')->on('users')->onDelete('cascade');
             $table->foreign('adviser_id')->references('id')->on('advisers')->onDelete('cascade');
             $table->timestamp('date')->nullable();
         });

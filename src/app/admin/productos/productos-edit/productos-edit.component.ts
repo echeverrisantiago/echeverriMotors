@@ -60,17 +60,18 @@ export class ProductosEditComponent implements OnInit {
       year: product.year,
       price: product.price,
       stock: product.stock,
+      reference: product.reference,
       data_sheet: product.data_sheet
     });
   }
 
   getImage(product: any){
-    this.storage.ref('products/'+
-          `${this.product.marke+'/'+product.year+'/'+product.model+'/mainImage/mainImg.png'}`)
-          .getDownloadURL()
-          .subscribe(url => {
-              this.mainImg = url;
-          });
+    /* this.storage.ref(product.main_img)
+    .getDownloadURL()
+    .subscribe(url => {
+        this.mainImg = url;
+    }); */
+    this.mainImg = product.main_img;
   }
 
   actualizarProduct(event: Event){
@@ -112,6 +113,7 @@ export class ProductosEditComponent implements OnInit {
       model: ['',[Validators.required, Validators.minLength(2)]],
       price: ['',[Validators.required, Validators.minLength(7)]],
       stock: ['',[Validators.required, Validators.minLength(1)]],
+      reference: ['',[Validators.required, Validators.minLength(5),Validators.maxLength(12)]],
       data_sheet: ['', Validators.minLength(1)],
       year: ['',[Validators.required,Validators.minLength(4)]]
     })

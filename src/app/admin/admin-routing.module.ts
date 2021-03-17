@@ -24,7 +24,7 @@ const routes: Routes = [
       },
       {
         path: 'ventas',
-        component: TotalVentasComponent,
+        loadChildren: () => import('./ventas/ventas.module').then(m => m.VentasModule)
       },
       {
         path: 'productos',

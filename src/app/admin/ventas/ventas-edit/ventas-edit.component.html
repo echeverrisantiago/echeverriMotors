@@ -1,0 +1,55 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="listar($event)">
+        <mat-card>
+            <mat-card-header>
+            <mat-card-title><h2>Editar venta</h2></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                    <div class="row">
+                        <div class="col">
+                 <mat-form-field>
+                    <mat-label>Producto</mat-label>
+                    <mat-select formControlName="product_id">
+                        <mat-option *ngFor="let product of products" [value]="product.id">
+                            {{product.reference }} {{product.model}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col">
+     <mat-form-field>
+        <mat-label>Cliente</mat-label>
+        <mat-select formControlName="customer_id">
+        <mat-option *ngFor="let customer of customers" [value]="customer.document">
+            {{customer.name}}
+        </mat-option>
+    </mat-select>
+    </mat-form-field>
+
+    </div>
+                    </div>
+    <div class="row">
+        <div class="col">
+    <mat-form-field>
+    <mat-label>Asesor</mat-label>
+    <mat-select formControlName="adviser_id">
+        <mat-option *ngFor="let adviser of advisers" [value]="adviser.id">{{adviser.name}}</mat-option>
+    </mat-select>
+    </mat-form-field>
+    </div>
+
+
+        <div class="col">
+    <mat-form-field>
+    <mat-label>Venta estado</mat-label>
+    <input matInput type="text" formControlName="sale_state">
+    </mat-form-field>
+    </div>
+    </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button mat-button color="primary" type="submit">Ingresar</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+    </div>

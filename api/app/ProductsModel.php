@@ -10,10 +10,12 @@ class ProductsModel extends Model
     protected $table = 'products';
     protected $fillable = [
         'marke',
+        'reference',
         'model',
         'year',
         'price',
         'stock',
-        'data_sheet'
+        'data_sheet',
+        'main_img'
     ];
 }

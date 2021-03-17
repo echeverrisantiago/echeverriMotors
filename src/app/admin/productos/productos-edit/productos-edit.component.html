@@ -45,14 +45,20 @@
 <input matInput type="number" formControlName="stock">
 </mat-form-field>
 </div>
-    <div class="col">
-<mat-form-field>
-<mat-label>Ficha técnica</mat-label>
-<input matInput type="text" formControlName="data_sheet">
-</mat-form-field>
-</div>
+<div class="col">
+    <mat-form-field>
+    <mat-label>Referencia</mat-label>
+    <input matInput type="text" formControlName="reference">
+    </mat-form-field>
+    </div>
 </div>
 <div class="row">
+    <div class="col">
+        <mat-form-field>
+        <mat-label>Ficha técnica</mat-label>
+        <input matInput type="text" formControlName="data_sheet">
+        </mat-form-field>
+        </div>
     <div class="col">
         <img [src]="mainImg">
         <input type="file" (change)="productImage($event)">

@@ -46,6 +46,7 @@ class ProductsController extends Controller
     public function update(Request $req){
         $product = ProductsModel::findOrFail($req->id);
         if($product){
+            $product->reference = $req->reference;
             $product->marke = $req->marke;
             $product->model = $req->model;
             $product->year = $req->year;

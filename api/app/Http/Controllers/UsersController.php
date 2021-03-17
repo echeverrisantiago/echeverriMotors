@@ -8,17 +8,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
-
-/*
-       $user = User::create([
-           'document' => $req->document,
-           'name' => $req->name,
-           'surname' => $req->surname,
-           'rol' => $req->rol,
-           'email' => $req->email,
-           'password' => bcrypt($req->password)
-       ]);*/
-       //$user = User::create($req->only('document','name','surname','rol','email','password'));
     public function store(Request $req){
        $user = User::create($req->all());
 

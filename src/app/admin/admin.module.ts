@@ -15,9 +15,11 @@ import { ProductosInfoComponent } from './productos/productos-info/productos-inf
 import { AsesoresCreateComponent } from './asesores/asesores-create/asesores-create.component';
 import { AsesoresEditComponent } from './asesores/asesores-edit/asesores-edit.component';
 import { AsesoresLayoutComponent } from './asesores/asesores-layout/asesores-layout.component';
+import { VentasAgregarComponent } from './ventas/ventas-agregar/ventas-agregar.component';
+import { VentasEditComponent } from './ventas/ventas-edit/ventas-edit.component';
 
 @NgModule({
-  declarations: [LayoutComponent, DashboardComponent, TotalVentasComponent, ProductosActualesComponent, ProductosInfoComponent, AsesoresActualesComponent, ProductosCreateComponent, ProductosEditComponent, AsesoresCreateComponent, AsesoresEditComponent, AsesoresLayoutComponent],
+  declarations: [LayoutComponent, DashboardComponent, TotalVentasComponent, ProductosActualesComponent, ProductosInfoComponent, AsesoresActualesComponent, ProductosCreateComponent, ProductosEditComponent, AsesoresCreateComponent, AsesoresEditComponent, AsesoresLayoutComponent, VentasAgregarComponent, VentasEditComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

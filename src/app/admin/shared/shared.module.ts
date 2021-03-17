@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from './../../material/material.module';
 import { RouterModule } from '@angular/router';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 @NgModule({
   declarations: [HeaderComponent,FooterComponent],
@@ -12,6 +13,7 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     CommonModule,
     MaterialModule,
     RouterModule,
+    AngularFileUploaderModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger'
     }),
@@ -21,6 +23,7 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     FooterComponent,
     MaterialModule,
     RouterModule,
+    AngularFileUploaderModule,
     ConfirmationPopoverModule
   ]
 })

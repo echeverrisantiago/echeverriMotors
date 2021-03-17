@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   isDarkTheme: boolean = false;
+  isChecked: string = '';
 
   constructor() { }
 
@@ -17,15 +18,22 @@ export class HeaderComponent implements OnInit {
   toggleTheme(){
     if(this.isDarkTheme){
       this.isDarkTheme = false;
+      this.isChecked = '';
       localStorage.setItem('theme','Light');
     } else{
       this.isDarkTheme = true;
+      this.isChecked == 'mat-checked';
       localStorage.setItem('theme','Dark');
     }
   }
 
   verifyTheme(){
-    this.isDarkTheme = localStorage.getItem('theme') === 'Dark' ? true : false;
+    if(localStorage.getItem('theme') === 'Dark'){
+      this.isDarkTheme = true;
+      this.isChecked = 'mat-checked';
+  } else{
+    this.isDarkTheme = false;
+    this.isChecked = '';
   }
-
+  }
 }

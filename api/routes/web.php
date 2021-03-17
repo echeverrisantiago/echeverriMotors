@@ -6,6 +6,8 @@ use App\Http\Controllers\AdvisersController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\SalesController;
+use App\Http\Controllers\CustomersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +21,6 @@ use App\Http\Controllers\UsersController;
 /* ****** ****** ****** USERS ****** ****** ****** */
 
 Route::post('/users', [UsersController::class,'login']);
-Route::get('/users/test', function(){
-    return Hash::make('bloodinyoureyes3');
-});
 /* ****** ****** ****** PRODUCTS ****** ****** ****** */
 
 Route::post('/product', [ProductsController::class,'store']);
@@ -46,3 +45,19 @@ Route::get('/advisers', [AdvisersController::class,'index']);
 Route::get('/adviser/{id}', [AdvisersController::class,'getItem']);
 Route::post('/advisersUpdate', [AdvisersController::class,'update']);
 Route::delete('/adviser/{id}',  [AdvisersController::class,'delete']);
+
+/* ****** ****** ****** SALES ****** ****** ****** */
+
+Route::post('/sales', [SalesController::class,'store']);
+Route::get('/sales', [SalesController::class,'index']);
+Route::get('/sales/{id}', [SalesController::class,'getSale']);
+Route::post('/salesUpdate', [SalesController::class,'update']);
+Route::delete('/sales/{id}',  [SalesController::class,'delete']);
+
+/* ****** ****** ****** CUSTOMERS ****** ****** ****** */
+
+Route::post('/customers', [CustomersController::class,'store']);
+Route::get('/customers', [CustomersController::class,'index']);
+Route::get('/customers/{id}', [CustomersController::class,'getSale']);
+Route::post('/customersUpdate', [CustomersController::class,'update']);
+Route::delete('/customers/{id}',  [CustomersController::class,'delete']);
